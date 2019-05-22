@@ -87,6 +87,6 @@ public class VentanaEliminar extends JFrame {
 			}
 		});
 		botoneliminar.setBounds(106, 152, 97, 25);
-		contentPane.add(botoneliminar);
+		contentPane.add(botoneliminar); 
 	}
 }
