@@ -2,6 +2,7 @@ package proyecto;
 
 import java.util.ArrayList;
 
+
 public class Pisos{
 	
 	//Definir Variables
@@ -19,6 +20,7 @@ public class Pisos{
 		setN_piezas(0);
 		setN_banospri(0);
 		setN_banoscom(0);
+		
 	}
 	
 	public Pisos(String e, int np, int nbp, int nbc) {//constructor de incersion

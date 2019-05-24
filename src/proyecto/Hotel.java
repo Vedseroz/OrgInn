@@ -1,18 +1,44 @@
 package proyecto;
  
+import java.sql.*;
 import java.io.*;  
 import java.util.ArrayList;
 import java.util.StringJoiner;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
  
 public class Hotel{
-   
-    private ArrayList<Pisos> pisito = new ArrayList<Pisos>();
-   
+	
+	/*-----------------------SQL--------------------------------------------------*/
+	
+	public static Connection conexion = null;
+	
+	public Hotel() throws ClassNotFoundException {
+		Class.forName("com.mysql.jdbc.Driver");
+	}
+	
+	public void conectar() throws SQLException {
+    	conexion = DriverManager.getConnection("jdbc:mysql://" + "dirección (ip o dominio) donde está hosteado la base de datos"
+				 + "/"
+				 + "nombre de la base de datos"
+				 + "?useSSL=false",
+				 "nombreDeUsuario",
+				 "contraseña");
+	}
+	
+	
+	
     /*----------------------------------------------------------------------------*/
-   
+    private ArrayList<Pisos> pisito = new ArrayList<Pisos>();
     private String arch = "registro.csv";
     private String linea = null;
-
+    
+  
+    
     public boolean leer() throws IOException{
        
         try{
