@@ -17,7 +17,7 @@ public class Pisos{
 	
 	public Pisos() { //constructor default
 		setEncargado(null);
-		setN_piezas(0);   				//OWO
+		setN_piezas(0);   					
 		setN_banospri(0);
 		setN_banoscom(0);
 		
