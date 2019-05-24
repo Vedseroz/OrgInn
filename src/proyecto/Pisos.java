@@ -1,12 +1,12 @@
 package proyecto;
-
+import java.util.*;
 import java.util.ArrayList;
 
 public class Pisos{
 	
 	//Definir Variables
 	private String encargado;
-	private ArrayList<Habitaciones> piezas = new ArrayList<Habitaciones>();
+	private Map<Integer,Habitaciones> mapaPiezas = new HashMap<Integer,Habitaciones>();
 	private int n_piezas; // numero de piezas por piso
 	private int n_banospri; //numero de piezas con bano privado
 	private int n_banoscom; //numero de piezas con bano compartido
@@ -57,34 +57,44 @@ public class Pisos{
 	
 	/*-----------------------------------METODOS-------------------------------------------------------*/
 	
-	public void addHabitacion(Habitaciones h) {
-		piezas.add(h);  // agrega el elemento al final de la lista.
+	public void addHabitacion(Habitaciones h){
+		mapaPiezas.put(h.getN_habitacion(),h);	//agrega la habitacion y ocupa el numero de esta como key
+		
 	}
 	
-	public Habitaciones obtenerCamasPedidas(int cantidad){ // obtiene si hay espacio para las personas a ser ingresadas
+	
+	public Habitaciones obtenerCamasPedidas(int cantidad){
+		Habitaciones h = new  Habitaciones();
+		Habitaciones[] buffer = new Habitaciones[mapaPiezas.size()];
+		/*.values() crea una coleccion de Habitaciones, .toArray() lo convierte en un arreglo 
+		  y new Habitaciones[0] setea ese arreglo como tipo Habitaciones*/
+		buffer = mapaPiezas.values().toArray(new Habitaciones[0]);	
 		
-		Habitaciones h = new Habitaciones(); //intancia
-		
-		for(int i=0;i<piezas.size();i++) {
-			h = (Habitaciones)piezas.get(i);
-			if(h.getN_camas()==cantidad) {
+		for(int i=0;i<(mapaPiezas.size());i++){
+			h =(Habitaciones) buffer[i];
+			if(h.getN_camas() == cantidad)
 				return h;
-			}
-		 }
-		return null; 
+		}
+		return null;
 	}
 	
-	public Habitaciones getPieza(int hab) {
-		return piezas.get(hab);
+	
+	public Habitaciones getPieza(int hab){
+		return mapaPiezas.get(hab);
+		
 	}
+
 	
 	public ArrayList<Habitaciones> obtenerHabitaciones(){
-		ArrayList<Habitaciones> auxhab = new ArrayList<Habitaciones>();
-		for (int i=0;i<piezas.size();i++) {
-			auxhab.add(piezas.get(i));
+		ArrayList<habitaciones> listaHabitaciones = new ArrayList<habitaciones>();
+		Habitaciones[] buffer = new Hbitaciones(mapaPiezas.size()); //se crea arreglo auxiliar
+		buffer = MapaPiezas.values().toArray(new Habitaciones[0]); //se le pasa al arreglo la coleccion de habitaciones
+		for(int i=0;i<mapaPiezas.size();i++){
+			listaHabitaciones.add(buffer[i]);
 		}
-		return auxhab;
+		return listaHabitaciones;
 	}
+
 	
 	public void obtenerPersona(Persona person) {
 		Habitaciones hab;
