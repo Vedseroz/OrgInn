@@ -12,25 +12,7 @@ import java.util.ArrayList;
 
  
 public class Hotel{
-	
-	/*-----------------------SQL--------------------------------------------------*/
-	
-	public static Connection conexion = null;
-	
-	public Hotel() throws ClassNotFoundException {
-		Class.forName("com.mysql.jdbc.Driver");
-	}
-	
-	public void conectar() throws SQLException {
-    	conexion = DriverManager.getConnection("jdbc:mysql://" + "dirección (ip o dominio) donde está hosteado la base de datos"
-				 + "/"
-				 + "nombre de la base de datos"
-				 + "?useSSL=false",
-				 "nombreDeUsuario",
-				 "contraseña");
-	}
-	
-	
+		
 	
     /*----------------------------------------------------------------------------*/
     private ArrayList<Pisos> pisito = new ArrayList<Pisos>();
