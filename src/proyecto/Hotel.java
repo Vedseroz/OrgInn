@@ -13,7 +13,6 @@ import java.util.ArrayList;
  
 public class Hotel{
 		
-	
     /*----------------------------------------------------------------------------*/
     private ArrayList<Pisos> pisito = new ArrayList<Pisos>();
     private String arch = "registro.csv";
@@ -21,7 +20,7 @@ public class Hotel{
     
   
     
-    public boolean leer() throws IOException{
+   /* public boolean leer() throws IOException{
        
         try{
         	
@@ -126,11 +125,11 @@ public class Hotel{
     	
     }
    
-   
+   /*
    
    /*-----------------------------------------------------------------------------------------------------------------*/   
    
-    public void escribir(){
+  /*  public void escribir(){
            
         try {
             FileWriter escritor = new FileWriter("registro.csv", false);			//mismo procedimiento a la funcion leer pero al revez
@@ -289,6 +288,8 @@ public String verRegistros(int index, int nivel) { // 0 = pieza, 1 = piso
 		}
 		return null;
 	}
+	
+	*/
 
 	public Habitaciones obtenerHabitacion(int nPieza){
 		Pisos p;
