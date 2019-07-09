@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Button;
 
 
 public class Interfaz extends JFrame {
@@ -28,11 +30,11 @@ public class Interfaz extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		Hotel hotal = new Hotel();
+		Hotel hotel = new Hotel();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Interfaz frame = new Interfaz(hotal);
+					Interfaz frame = new Interfaz(hotel);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,8 +51,10 @@ public class Interfaz extends JFrame {
 	public Interfaz(Hotel hotel) throws IOException {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 503, 453);								//Esto delimita la ventana
+		setBounds(100, 100, 509, 341);										//Esto delimita la ventana
+		setTitle("Orginn");
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(112, 128, 144));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));			//Se genera el panel absoluto y el layout
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -89,22 +93,12 @@ public class Interfaz extends JFrame {
 		contentPane.add(btnMostrarHabitaciones);
 		
 		JLabel lblVer = new JLabel("ver 0.2");
-		lblVer.setBounds(12, 377, 56, 16);
+		lblVer.setBounds(12, 269, 56, 16);
 		contentPane.add(lblVer);
 		
-		JButton botonactualizacion = new JButton("Actualizar Registro"); 
-		botonactualizacion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				hotel.escribir();   									//se llama a la funcion para escribir el registro en el csv
-				
-			}
-		});
-		botonactualizacion.setFont(new Font("Roboto Condensed Light", Font.PLAIN, 14));
-		botonactualizacion.setBounds(41, 193, 174, 31);
-		contentPane.add(botonactualizacion);
 		
-		JButton btnEliminarHuespedes = new JButton("Eliminar Huespedes");   //BOTON ELIMINAR HUESPEDES DE LOS REGISTROS
-		btnEliminarHuespedes.addActionListener(new ActionListener() {
+		JButton btnSacarHuespedes = new JButton("Sacar Huespedes");   //BOTON ELIMINAR HUESPEDES DE LOS REGISTROS
+		btnSacarHuespedes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				VentanaEliminar ve = new VentanaEliminar(hotel);   //llama a la ventana de eliminacion
@@ -114,8 +108,24 @@ public class Interfaz extends JFrame {
 				
 			}
 		});
-		btnEliminarHuespedes.setFont(new Font("Roboto Condensed Light", Font.PLAIN, 14));
-		btnEliminarHuespedes.setBounds(41, 237, 174, 31);
-		contentPane.add(btnEliminarHuespedes);
+		btnSacarHuespedes.setFont(new Font("Roboto Condensed Light", Font.PLAIN, 14));
+		btnSacarHuespedes.setBounds(41, 193, 174, 31);
+		contentPane.add(btnSacarHuespedes);
+		
+		JButton AgregarHabitaciones = new JButton("Agregar Habitaciones");
+		AgregarHabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		AgregarHabitaciones.setBounds(271, 105, 174, 29);
+		contentPane.add(AgregarHabitaciones);
+		
+		JButton AgregarPisos = new JButton("Agregar Pisos");
+		AgregarPisos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		AgregarPisos.setBounds(271, 149, 179, 29);
+		contentPane.add(AgregarPisos);
 	}
 }

@@ -52,6 +52,7 @@ public class Ventana3 extends JFrame {
 	public Ventana3(ArrayList<Persona> listahuespedes,Habitaciones habitacion, Hotel hotel,int c) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 380, 352);
+		setTitle("Orginn");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

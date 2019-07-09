@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class VentanaMostrar extends JFrame {
 
@@ -33,6 +34,7 @@ public class VentanaMostrar extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table_habitaciones;
 
 	/**
 	 * Launch the application.
@@ -61,19 +63,11 @@ public class VentanaMostrar extends JFrame {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 740, 451);
+		setTitle("Orginn");
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		ScrollPane scrollPane = new ScrollPane();
-		scrollPane.setBackground(Color.WHITE);
-		scrollPane.setBounds(27, 53, 669, 304);
-		contentPane.add(scrollPane);
-		
-		Scrollbar scrollbar = new Scrollbar();
-		scrollbar.setBounds(675, 53, 21, 316);
-		contentPane.add(scrollbar);
 		
 		JLabel lblNewLabel = new JLabel("Lista de Habitaciones.");
 		lblNewLabel.setFont(new Font("Roboto Condensed Light", Font.BOLD, 14));
@@ -98,8 +92,22 @@ public class VentanaMostrar extends JFrame {
 		btnNewButton.setBounds(27, 366, 97, 25);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(27, 53, 642, 289);
-		contentPane.add(lblNewLabel_1);
+		
+		
+		//------------------------------------------------------TABLA DE DATOS---------------------------------------------------
+		Object n_columnas[] = {"Habitacion","Estado"}; 
+	
+		
+		table_habitaciones = new JTable(datos,n_columnas);         //TABLA CON LOS DATOS
+		table_habitaciones.setBounds(27, 55, 667, 295);
+		contentPane.add(table_habitaciones);
+		
+		JScrollPane scrollPane = new JScrollPane(table_habitaciones);   //SCROLLABLE PANEL 
+		getContentPane().add(scrollPane,BorderLayout.CENTER);
+		scrollPane.setBounds(23, 54, 667, 299);
+		contentPane.add(scrollPane);
+	
+			
+		
 	}
 }
