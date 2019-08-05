@@ -4,7 +4,7 @@ package proyecto;
 import java.util.ArrayList;
 
 
-public abstract class Habitaciones {
+public abstract class Habitaciones implements Operador{
 	
 	private int N_habitacion;
 	private int telefono;
@@ -110,11 +110,11 @@ public abstract class Habitaciones {
 	
 	/*-------------------------------------METODOS------------------------------------------------------------*/
 	
-	/*
-	public void obtenerPersonas(ArrayList<Persona> array) {
+
+	public void obtener(ArrayList<Persona> array) {
 		for(int i=0;i<array.size();i++) {
 			huespedes.add(array.get(i)); //esto genera una copia del arreglo de la clase y lo entrega.
-		}	
+		}
 	}
 	
 	public Persona getPersona(int p) {
@@ -127,9 +127,9 @@ public abstract class Habitaciones {
 		setTelefono(0);
 		huespedes.clear();
 	}
-	*/
 	
-	/*public void hospedar(ArrayList<Persona> personas) {
+	
+	public void hospedar(ArrayList<Persona> personas) {
 		Persona aux = new Persona();
 		
     	huespedes = personas;
@@ -143,7 +143,7 @@ public abstract class Habitaciones {
     	
     }
 
-	 */
+
 	
 	
 }

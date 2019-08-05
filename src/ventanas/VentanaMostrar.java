@@ -96,9 +96,8 @@ public class VentanaMostrar extends JFrame {
 		
 		//------------------------------------------------------TABLA DE DATOS---------------------------------------------------
 		Object n_columnas[] = {"Habitacion","Estado"}; 
-	
 		
-		table_habitaciones = new JTable(datos,n_columnas);         //TABLA CON LOS DATOS
+		table_habitaciones = new JTable();         //TABLA CON LOS DATOS
 		table_habitaciones.setBounds(27, 55, 667, 295);
 		contentPane.add(table_habitaciones);
 		

@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.ArrayList;
 
 
-public class Pisos{
+public class Pisos implements Operador{
 	
 	//Definir Variables
 	private String encargado;
@@ -99,14 +99,14 @@ public class Pisos{
 	}
 
 	
-	public ArrayList<Habitaciones> obtenerHabitaciones(){
-		ArrayList<habitaciones> listaHabitaciones = new ArrayList<habitaciones>();
-		Habitaciones[] buffer = new Hbitaciones(mapaPiezas.size()); //se crea arreglo auxiliar
+	public HashMap<Integer, Habitaciones> obtenerHabitaciones(){
+		Map<Integer, Habitaciones> mapa = new HashMap<Integer, Habitaciones>();
+		Habitaciones buffer; //se crea arreglo auxiliar
 		buffer = MapaPiezas.values().toArray(new Habitaciones[0]); //se le pasa al arreglo la coleccion de habitaciones
 		for(int i=0;i<mapaPiezas.size();i++){
 			listaHabitaciones.add(buffer[i]);
 		}
-		return listaHabitaciones;
+		return mapa;
 	}
 
 	

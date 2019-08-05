@@ -4,6 +4,9 @@ public class Persona{
 	
 	//declaracion de atributos de la persona.
 	
+	
+	//Metodos Abtractos
+
 	private String nombre;
 	private int rut;
 	
@@ -40,5 +43,5 @@ public class Persona{
 	
 	/*-------------------------------------------METODOS--------------------------------------------*/
 	
-	
+
 }
