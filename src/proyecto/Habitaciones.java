@@ -4,7 +4,7 @@ package proyecto;
 import java.util.ArrayList;
 
 
-protected abstract class Habitaciones implements Operador{
+public abstract class Habitaciones{
 	
 	protected int N_habitacion;
 	protected int telefono;
@@ -111,17 +111,14 @@ protected abstract class Habitaciones implements Operador{
 	/*-------------------------------------METODOS------------------------------------------------------------*/
 	
 
-	public void obtener(ArrayList<Persona> array) {
+	public void obtener(ArrayList<Persona> array) {  //Metodo que retorna un arreglo con todas las personas de la habitacion. no se referencia para hacer el arreglo moldeable.
 		for(int i=0;i<array.size();i++) {
 			huespedes.add(array.get(i)); //esto genera una copia del arreglo de la clase y lo entrega.
 		}
 	}
 	
-	public Persona getPersona(int p) {
-     	return huespedes.get(p);
-    }
 	
-	public void vaciar() {
+	public void eliminar() { //metodo que permite eliminar a todas las personas de la habitacion
 		setEstado(0);
 		setNp(0);
 		setTelefono(0);
