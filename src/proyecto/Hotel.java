@@ -22,7 +22,7 @@ public class Hotel implements Operador{
     
     public HabitacionNormal agregar(int cantidad, ArrayList<Persona> personas){  //este metodo recibe la cantidad de personas y la lista referenciando a las personas
         Pisos p = new Pisos();
-        HabitacionNormal h = new HabitacionesNormal();
+        HabitacionNormal h = new HabitacionNormal();
         for(int i = 0;i<pisito.size();i++) {
             p =(Pisos)pisito.get(i);
             h = p.obtener(cantidad);  
