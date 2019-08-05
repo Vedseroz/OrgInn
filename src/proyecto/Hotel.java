@@ -16,21 +16,26 @@ public class Hotel implements Operador{
     /*----------------------------------------------------------------------------*/
     private ArrayList<Pisos> pisito = new ArrayList<Pisos>();
   
+    //---------------------------------METODOS--------------------------------------------------
+    
    
-    public Habitaciones obtenerCamasPedidas(int cantidad, ArrayList<Persona> personas){  //funcion para alojar personas al hotel
-    	
+    
+    public HabitacionNormal agregar(int cantidad, ArrayList<Persona> personas){  //este metodo recibe la cantidad de personas y la lista referenciando a las personas
         Pisos p = new Pisos();
-        Habitaciones h = new Habitaciones();
+        HabitacionNormal h = new HabitacionesNormal();
         for(int i = 0;i<pisito.size();i++) {
             p =(Pisos)pisito.get(i);
-            h = p.obtenerCamasPedidas(cantidad);  
+            h = p.obtener(cantidad);  
         }
         
         if(h==null) {
             return null; //si no encuentra nada retorna null
         }
         
-        return h;
+        else {
+        	h.agregar();
+        }
+        
     }
     
     public boolean obtenerCamasPedidas(int cantidad){ //funcion para verificar si hay habitacion disponible
@@ -88,14 +93,13 @@ public class Hotel implements Operador{
 		return null;		
 }
 	
-	public ArrayList<Habitaciones> obtenerHabitaciones() {
-		
+	public ArrayList<Habitaciones> obtener() {
 		ArrayList<Habitaciones> hab = new ArrayList<Habitaciones>();
 		ArrayList<Habitaciones> hh = new ArrayList<Habitaciones>();
 		Pisos pp;
 		for (int i=0;i<pisito.size();i++) {
 			pp = (Pisos)pisito.get(i);
-			hab = pp.obtenerHabitaciones();
+			hab = pp.obtener();
 			for(int j=0;i<hab.size();j++) {
 				hh.add(hab.get(j));
 			}
@@ -104,8 +108,9 @@ public class Hotel implements Operador{
 	}
 	
 	
-	
-	
+	 public void agregar(Pisos p) { //metodo para agregar pisos nuevos al hotel.
+    	pisito.add(p);
+    }
 	
 	
 }

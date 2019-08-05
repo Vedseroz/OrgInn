@@ -75,7 +75,7 @@ public class Pisos implements Operador{
 	}
 	
 	
-	public Habitaciones obtenerCamasPedidas(int cantidad){
+	public Habitaciones obtener(int cantidad){
 		Habitaciones h = new  Habitaciones();
 		Habitaciones[] buffer = new Habitaciones[mapaPiezas.size()];
 		/*.values() crea una coleccion de Habitaciones, .toArray() lo convierte en un arreglo 
