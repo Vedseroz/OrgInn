@@ -4,17 +4,17 @@ package proyecto;
 import java.util.ArrayList;
 
 
-public abstract class Habitaciones implements Operador{
+protected abstract class Habitaciones implements Operador{
 	
-	private int N_habitacion;
-	private int telefono;
-	private int N_camas;
-	private int np; //numero de personas.
-	private int clase; // clase de habitacion
-	private ArrayList<Persona> huespedes = new ArrayList<Persona>();
-	private double monto;
-	private int estado; // 0 = no habitado  1 = habitado  2 = en limpieza
-	private boolean banoprivado;
+	protected int N_habitacion;
+	protected int telefono;
+	protected int N_camas;
+	protected int np; //numero de personas.
+	protected int clase; // clase de habitacion
+	protected ArrayList<Persona> huespedes = new ArrayList<Persona>();
+	protected double monto;
+	protected int estado; // 0 = no habitado  1 = habitado  2 = en limpieza
+	protected boolean banoprivado;
 	
 	/*--------------------------------------------------------------------------------------------------------*/
 	
