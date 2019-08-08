@@ -3,6 +3,8 @@ package proyecto;
 import java.sql.*;
 import java.io.*;  
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringJoiner;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,38 +22,26 @@ public class Hotel implements Operador{
     
    
     
-    public HabitacionNormal agregar(int cantidad, ArrayList<Persona> personas){  //este metodo recibe la cantidad de personas y la lista referenciando a las personas
-        Pisos p = new Pisos();
-        HabitacionNormal h = new HabitacionNormal();
+    public HabitacionNormal hospedarPersonas(int cantidad, String type, ArrayList<Persona> personas){  //este metodo recibe la cantidad de personas y la lista referenciando a las personas
+    																			// además retorna una habitacion de tipo normal.
+    	ArrayList<Habitaciones> arreglohab = new ArrayList<Habitaciones>();
+    	Pisos p = new Pisos();
+        Habitaciones h = new HabitacionVip();
         for(int i = 0;i<pisito.size();i++) {
             p =(Pisos)pisito.get(i);
-            h = p.obtener(cantidad);  
+            arreglohab = p.obtenerHabitaciones(); //obtener una copia del arreglo con las habitaciones 
+            
+            for(int j = 0;i<arreglohab.size();j++) {
+            	h = (HabitacionVip)arreglohab.get(j);
+           
+            	}
+            }
+        
         }
         
-        if(h==null) {
-            return null; //si no encuentra nada retorna null
-        }
-        
-        else {
-        	h.agregar();
-        }
-        
-    }
-    
-    public boolean obtenerCamasPedidas(int cantidad){ //funcion para verificar si hay habitacion disponible
-        Pisos p;
-        Habitaciones h = new Habitaciones();
-        for(int i = 0;i<pisito.size();i++) {
-            p =(Pisos)pisito.get(i);
-            h = p.obtenerCamasPedidas(cantidad);  
-        }
-        if(h==null) {
-            return false;
-        }
-        return true;
     }
    
-    public boolean desalojar(int rut) {
+    public boolean eliminar(int rut) {
         Pisos piso;
         Habitaciones habitacion;
         Persona titular;
@@ -93,20 +83,19 @@ public class Hotel implements Operador{
 		return null;		
 }
 	
-	public ArrayList<Habitaciones> obtener() {
+	public ArrayList<Habitaciones> obtenerHabitaciones() {                         //este metodo retorna una lista con TODAS las habitaciones del hotel.
 		ArrayList<Habitaciones> hab = new ArrayList<Habitaciones>();
 		ArrayList<Habitaciones> hh = new ArrayList<Habitaciones>();
 		Pisos pp;
-		for (int i=0;i<pisito.size();i++) {
+		for (int i=0;i < pisito.size();i++) {
 			pp = (Pisos)pisito.get(i);
-			hab = pp.obtener();
+			hab = pp.obtenerHabitaciones();
 			for(int j=0;i<hab.size();j++) {
 				hh.add(hab.get(j));
 			}
 		}
 	return hh;
 	}
-	
 	
 	 public void agregar(Pisos p) { //metodo para agregar pisos nuevos al hotel.
     	pisito.add(p);

@@ -73,9 +73,11 @@ public class VentanaEliminar extends JFrame {
 		JButton botoneliminar = new JButton("Eliminar");
 		botoneliminar.addActionListener(new ActionListener() { 									
 			public void actionPerformed(ActionEvent arg0) {
+			try {
 				
-				int ruttitular = Integer.parseInt(rutingr.getText());		//se le asigna a una instancia el texto ingresado convertido en un integer
-				hotel.desalojar(ruttitular);
+				int ruttitular = Integer.parseInt(rutingr.getText());//se le asigna a una instancia el texto ingresado convertido en un integer
+				
+				hotel.eliminar(ruttitular);
 				
 				
 				String mensaje = "Personas desalojadas con exito.";        //se crea un string
@@ -83,7 +85,12 @@ public class VentanaEliminar extends JFrame {
 				
 				setVisible(false);                                         //visibilidad
 				men.setVisible(true);
-				
+			}
+			
+			catch(InputNullException e) {
+				String s = "Intente nuevamente";
+				VentanaMensaje maux = new VentanaMensaje(hotel,s);
+			}
 				
 			}
 		});

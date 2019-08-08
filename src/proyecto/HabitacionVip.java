@@ -37,6 +37,10 @@ public class HabitacionVip extends Habitaciones implements Operador {
 		return huespedes;
 	}
 	
+	public boolean noEsVip() {
+		return getServicio();
+	}
+	
 	
 	public void eliminar() {
 		setEstado(0);
@@ -44,4 +48,6 @@ public class HabitacionVip extends Habitaciones implements Operador {
 		setTelefono(0);
 		huespedes.clear();
 	}
+	
 }
+
