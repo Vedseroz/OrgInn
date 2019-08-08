@@ -10,7 +10,6 @@ public abstract class Habitaciones{
 	protected int telefono;
 	protected int N_camas;
 	protected int np; //numero de personas.
-	protected int clase; // clase de habitacion
 	protected ArrayList<Persona> huespedes = new ArrayList<Persona>();
 	protected double monto;
 	protected int estado; // 0 = no habitado  1 = habitado  2 = en limpieza
@@ -21,7 +20,6 @@ public abstract class Habitaciones{
 	public Habitaciones() {
 		setN_habitacion(0);
 		setN_camas(0);
-		setClase(0);
 		setMonto(0);
 		setEstado(0);
 		setBanoprivado(false);
@@ -32,7 +30,6 @@ public abstract class Habitaciones{
 	public Habitaciones(int h, int c, int cl, double m, int e, boolean bpriv, int tel, int np) {
 		setN_habitacion(h);
 		setN_camas(c);
-		setClase(cl);
 		setMonto(m);
 		setEstado(e);
 		setBanoprivado(bpriv);
@@ -54,14 +51,6 @@ public abstract class Habitaciones{
 
 	public void setN_camas(int n_camas) {
 		N_camas = n_camas;
-	}
-
-	public int getClase() {
-		return clase;
-	}
-
-	public void setClase(int clase) {
-		this.clase = clase;
 	}
 
 	public double getMonto() {
@@ -111,10 +100,12 @@ public abstract class Habitaciones{
 	/*-------------------------------------METODOS------------------------------------------------------------*/
 	
 
-	public void obtener(ArrayList<Persona> array) {  //Metodo que retorna un arreglo con todas las personas de la habitacion. no se referencia para hacer el arreglo moldeable.
+	public ArrayList<Persona> obtener() {  //Metodo que retorna un arreglo con todas las personas de la habitacion. no se referencia para hacer el arreglo moldeable.
+		ArrayList<Persona> array = new ArrayList<Persona>();
 		for(int i=0;i<array.size();i++) {
 			huespedes.add(array.get(i)); //esto genera una copia del arreglo de la clase y lo entrega.
 		}
+		return array;
 	}
 	
 	

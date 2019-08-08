@@ -44,4 +44,6 @@ public class HabitacionVip extends Habitaciones implements Operador {
 		setTelefono(0);
 		huespedes.clear();
 	}
+	
 }
+

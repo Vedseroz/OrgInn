@@ -27,20 +27,17 @@ public class Hotel implements Operador{
             p =(Pisos)pisito.get(i);
             h = p.obtener(cantidad);  
         }
-        
         if(h==null) {
             return null; //si no encuentra nada retorna null
         }
-        
         else {
-        	h.agregar();
+        	h.agregar(personas);
         }
         
     }
-    
     public boolean obtenerCamasPedidas(int cantidad){ //funcion para verificar si hay habitacion disponible
         Pisos p;
-        Habitaciones h = new Habitaciones();
+        HabitacionNormal h = new HabitacionNormal();
         for(int i = 0;i<pisito.size();i++) {
             p =(Pisos)pisito.get(i);
             h = p.obtenerCamasPedidas(cantidad);  

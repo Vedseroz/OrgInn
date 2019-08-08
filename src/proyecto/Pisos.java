@@ -75,15 +75,22 @@ public class Pisos implements Operador{
 	}
 	
 	
-	public Habitaciones obtener(int cantidad){
-		Habitaciones h = new  Habitaciones();
+	public Habitaciones obtener(int cantidad, String type){
+		Habitaciones h;
+		if (type.equals("vip")) {
+			h = new  HabitacionVip();
+		}
+		if (type.equals("normal")) {
+			h = new HabitacionNormal();
+		}
+		
 		Habitaciones[] buffer = new Habitaciones[mapaPiezas.size()];
 		/*.values() crea una coleccion de Habitaciones, .toArray() lo convierte en un arreglo 
 		  y new Habitaciones[0] setea ese arreglo como tipo Habitaciones*/
 		buffer = mapaPiezas.values().toArray(new Habitaciones[0]);	
 		
 		for(int i=0;i<(mapaPiezas.size());i++){
-			h =(Habitaciones) buffer[i];
+			h = buffer[i];
 			if(h.getN_camas() == cantidad)
 				return h;
 		}
@@ -101,8 +108,8 @@ public class Pisos implements Operador{
 	
 	public HashMap<Integer, Habitaciones> obtenerHabitaciones(){
 		Map<Integer, Habitaciones> mapa = new HashMap<Integer, Habitaciones>();
-		Habitaciones buffer; //se crea arreglo auxiliar
-		buffer = MapaPiezas.values().toArray(new Habitaciones[0]); //se le pasa al arreglo la coleccion de habitaciones
+		Habitaciones[] buffer; //se crea arreglo auxiliar
+		buffer = mapaPiezas.values().toArray(new Habitaciones[0]); //se le pasa al arreglo la coleccion de habitaciones
 		for(int i=0;i<mapaPiezas.size();i++){
 			listaHabitaciones.add(buffer[i]);
 		}
@@ -112,10 +119,12 @@ public class Pisos implements Operador{
 	
 	public void obtenerPersona(Persona person) {
 		Habitaciones hab;
-		for(int i = 0; i < piezas.size();i++) {
-			hab = (Habitaciones)piezas.get(i);
+		ArrayList<Persona> array = new ArrayList<Persona>();
+		for(int i = 0; i < mapaPiezas.size();i++) {
+			hab = (Habitaciones)mapaPiezas.get(i);
 			for(int j=0;j<hab.getNp();j++) {
-				person = hab.getPersona(j);
+				array = hab.obtener();
+				person = array[j];
 			}
 		}
 		
