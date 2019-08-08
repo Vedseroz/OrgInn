@@ -69,7 +69,7 @@ public class Pisos implements Operador{
 	}
 	/*-----------------------------------METODOS-------------------------------------------------------*/
 	
-	public void addHabitacion(Habitaciones h){
+	public void agregar(Habitaciones h){
 		mapaPiezas.put(h.getN_habitacion(),h);	//agrega la habitacion y ocupa el numero de esta como key
 		
 	}
@@ -89,7 +89,7 @@ public class Pisos implements Operador{
 		  y new Habitaciones[0] setea ese arreglo como tipo Habitaciones*/
 		buffer = mapaPiezas.values().toArray(new Habitaciones[0]);	
 		
-		for(int i=0;i<(mapaPiezas.size());i++){
+		for(int i=0;i<(mapaPiezas.size());i++){                //
 			h = buffer[i];
 			if(h.getN_camas() == cantidad)
 				return h;
@@ -106,14 +106,14 @@ public class Pisos implements Operador{
 	}
 
 	
-	public HashMap<Integer, Habitaciones> obtenerHabitaciones(){
-		Map<Integer, Habitaciones> mapa = new HashMap<Integer, Habitaciones>();
+	public ArrayList<Habitaciones> obtenerHabitaciones(){
+		ArrayList<Habitaciones> listaHabitaciones = new ArrayList<Habitaciones>();
 		Habitaciones[] buffer; //se crea arreglo auxiliar
 		buffer = mapaPiezas.values().toArray(new Habitaciones[0]); //se le pasa al arreglo la coleccion de habitaciones
 		for(int i=0;i<mapaPiezas.size();i++){
 			listaHabitaciones.add(buffer[i]);
 		}
-		return mapa;
+		return listaHabitaciones;
 	}
 
 	

@@ -12,11 +12,11 @@ public class VentanaPrincipal {
 	
 	public static void main (String args[]) throws IOException, SQLException {
 
-		Hotel hotelcito = new Hotel();//se instancia el hotel y se leen los datos.
+		Hotel hotell= new Hotel();//se instancia el hotel y se leen los datos.
 		SQL bd = new SQL();  	//instancia de conexion a la base de datos
 		bd.abstraer();
 		
-		Interfaz ventanap = new Interfaz(hotelcito);
+		Interfaz ventanap = new Interfaz(hotell);
 		ventanap.setVisible(true);
 		
 	}

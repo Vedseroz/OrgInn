@@ -1,6 +1,5 @@
 package proyecto;
 
-import ventanas.Ventana1;
 import ventanas.VentanaEliminar;
 import ventanas.VentanaMostrar;
 
